@@ -1,0 +1,12 @@
+services:
+#    api.example:
+#        class: ApiBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]
+
+    api.helpers:
+        class: ApiBundle\Services\Helpers
+        arguments: [""]
+
+    api.jwt_auth:
+        class: ApiBundle\Services\JwtAuth
+        arguments: ["@doctrine.orm.entity_manager"]

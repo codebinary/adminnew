@@ -1,0 +1,9 @@
+testdrive_index:
+    path: /list
+    defaults: { _controller: ApiBundle:Testdrive:index }
+    methods: GET
+
+testdrive_export:
+    path: /export
+    defaults: { _controller: ApiBundle:Testdrive:export}
+    methods: GET

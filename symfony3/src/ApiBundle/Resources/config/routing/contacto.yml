@@ -1,0 +1,9 @@
+contacto_index:
+    path: /list
+    defaults: { _controller: ApiBundle:Contacto:index }
+    methods: GET
+
+contacto_export:
+    path: /export
+    defaults: { _controller: ApiBundle:Contacto:export}
+    methods: GET

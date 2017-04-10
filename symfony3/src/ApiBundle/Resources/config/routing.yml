@@ -1,0 +1,19 @@
+# api_homepage:
+#     path:     /
+#     defaults: { _controller: ApiBundle:Default:index }
+
+default:
+    resource: "@ApiBundle/Resources/config/routing/default.yml"
+    prefix: /
+
+user:
+    resource: "@ApiBundle/Resources/config/routing/user.yml"
+    prefix: /user
+
+contacto:
+    resource: "@ApiBundle/Resources/config/routing/contacto.yml"
+    prefix: /contacto
+
+testdrive:
+    resource: "@ApiBundle/Resources/config/routing/testdrive.yml"
+    prefix: /testdrive

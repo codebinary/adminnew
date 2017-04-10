@@ -1,0 +1,29 @@
+user_login:
+    path: /login
+    defaults: { _controller: ApiBundle:User:login }
+    methods: POST
+
+user_index:
+    path: /list
+    defaults: { _controller: ApiBundle:User:index }
+    methods: GET
+
+user_new:
+    path: /new
+    defaults: { _controller: ApiBundle:User:new }
+    methods: POST
+
+user_edit:
+    path: /edit
+    defaults: { _controller: ApiBundle:User:edit}
+    methods: POST
+
+user_delete:
+    path: /delete/{id}
+    defaults: { _controller: ApiBundle:User:delete, id:null}
+    methods: POST
+
+user_export:
+    path: /export
+    defaults: { _controller: ApiBundle:User:export }
+    methods: GET
