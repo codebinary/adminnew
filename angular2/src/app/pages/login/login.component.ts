@@ -13,6 +13,7 @@ export class Login {
   public email:AbstractControl;
   public password:AbstractControl;
   public submitted:boolean = false;
+  public cargando = true;
 
   constructor(fb:FormBuilder) {
     this.form = fb.group({
@@ -25,6 +26,7 @@ export class Login {
   }
 
   public onSubmit(values:Object):void {
+    this.cargando = false;
     this.submitted = true;
     if (this.form.valid) {
       // your code goes here
