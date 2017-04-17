@@ -1,8 +1,11 @@
-import {Component} from '@angular/core';
+
+import { Component, ViewEncapsulation } from '@angular/core';
 import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/forms';
 
 //Para las rutas
 import { Router, ActivatedRoute } from '@angular/router';
+
+import { SweetAlertService } from './sweetAlert/sweetAlertService';
 
 import 'style-loader!./login.scss';
 
@@ -11,8 +14,10 @@ import { LoginService } from './services/index';
 
 @Component({
   selector: 'login',
+  encapsulation: ViewEncapsulation.None,
   templateUrl: './login.html',
-  providers: [ LoginService ]
+  styles:[require('sweetalert2/dist/sweetalert2.min.css')],
+  providers: [ LoginService, SweetAlertService ]
 })
 export class Login {
 
@@ -30,7 +35,8 @@ export class Login {
   constructor(private fb:FormBuilder,
               private loginService: LoginService,
               private route: ActivatedRoute,
-              private router: Router) {
+              private router: Router,
+              private swal: SweetAlertService) {
 
     this.form = fb.group({
       'email': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
@@ -59,9 +65,9 @@ export class Login {
   }
 
   public onSubmit(values:Object):void {
-    this.cargando = false;
     this.submitted = true;
     if (this.form.valid) {
+      this.cargando = false;
       // console.log(values);
       this.values = values;
       this.loginService.login(this.values).subscribe(
@@ -72,7 +78,7 @@ export class Login {
             console.log("Error en el servidor");
           }else{
             //Si el login es correct
-            if(!this.identity.code){
+            if(!this.identity.status){
               localStorage.setItem('identity', JSON.stringify(identity));
               //GET TOKEN
               this.values.gethash = "true";
@@ -97,9 +103,7 @@ export class Login {
               );
             }else{
               this.cargando = true;
-              setTimeout(function(){
-                alert("Credenciales inválidas");
-              }, 1000);
+              this.swal.swal('Credenciales inválidas');
             }
           }
 
@@ -107,5 +111,13 @@ export class Login {
       )
     }
   }
+
+  demo6() {
+        this.swal.swal({
+            title: 'Sweet!',
+            text: 'Here\'s a custom image.',
+            imageUrl: 'http://oitozero.com/img/avatar.jpg'
+        });
+    };
 }
 

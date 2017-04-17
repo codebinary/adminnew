@@ -6,9 +6,14 @@ import { NgaModule } from '../theme/nga.module';
 
 import { Pages } from './pages.component';
 
+//Importamos el archivo
+import { AuthGuard } from '../guards/index';
+
 @NgModule({
   imports: [CommonModule, NgaModule, routing],
-  declarations: [Pages]
+  declarations: [Pages],
+  providers: [AuthGuard]
+
 })
 export class PagesModule {
 }

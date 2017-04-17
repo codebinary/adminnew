@@ -28,7 +28,7 @@ class JwtAuth{
         );
         // var_dump($user);
         // exit();
-        $signup = true;
+        $signup = false;
         if(is_object($user)){
             $signup = true;
         }
@@ -53,7 +53,7 @@ class JwtAuth{
                 return $decode;
             }
         }else{
-            return $helpers->response("error", 401, "Unauthorized");
+            return array("status" => "error", "data" => "Login failed");
         }
     }
 

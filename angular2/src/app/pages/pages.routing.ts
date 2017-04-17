@@ -5,6 +5,8 @@ import { ModuleWithProviders } from '@angular/core';
 
 // export function loadChildren(path) { return System.import(path); };
 
+import { AuthGuard } from '../guards/index';
+
 export const routes: Routes = [
   {
     path: 'login',
@@ -27,8 +29,10 @@ export const routes: Routes = [
       { path: 'forms', loadChildren: 'app/pages/forms/forms.module#FormsModule' },
       { path: 'tables', loadChildren: 'app/pages/tables/tables.module#TablesModule' },
       { path: 'maps', loadChildren: 'app/pages/maps/maps.module#MapsModule' }
-    ]
+    ],
+    canActivate: [ AuthGuard ]
   }
+  
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forChild(routes);
