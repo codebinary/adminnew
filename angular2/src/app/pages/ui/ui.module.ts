@@ -12,6 +12,8 @@ import { Icons } from './components/icons/icons.component';
 import { Modals } from './components/modals/modals.component';
 import { Typography } from './components/typography/typography.component';
 
+import {SweetAlert } from './components/sweetAlert/sweetAlert.component';
+
 import { FlatButtons } from './components/buttons/components/flatButtons';
 import { RaisedButtons } from './components/buttons/components/raisedButtons';
 import { SizedButtons } from './components/buttons/components/sizedButtons';
@@ -21,6 +23,9 @@ import { LargeButtons } from './components/buttons/components/largeButtons';
 import { DropdownButtons } from './components/buttons/components/dropdownButtons';
 import { GroupButtons } from './components/buttons/components/groupButtons';
 import { IconsService } from './components/icons/icons.service';
+
+import { SweetAlertService } from './components/sweetAlert/sweetAlertService';
+
 
 
 @NgModule({
@@ -38,6 +43,7 @@ import { IconsService } from './components/icons/icons.service';
     Icons,
     Modals,
     Typography,
+    SweetAlert,
     Ui,
     FlatButtons,
     RaisedButtons,
@@ -49,7 +55,8 @@ import { IconsService } from './components/icons/icons.service';
     GroupButtons
   ],
   providers: [
-    IconsService
+    IconsService,
+    SweetAlertService
   ]
 })
 export class UiModule {
